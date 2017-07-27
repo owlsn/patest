@@ -1,7 +1,12 @@
 # 1003. Emergency (25)
-时间限制 | 内存限制 | 代码长度限制 | 判题程序 | 作者
-- | - | - | - | - 
-400 ms | 65536 kB | 16000 B | Standard | CHEN, Yue
+
+<table>
+<thead>
+<th>时间限制</th><th>内存限制</th><th>代码长度限制</th><th>判题程序</th><th>作者</th>
+</thead>
+<tbody>
+<tr><td>400 ms</td><td>65536 kB</td><td>16000 B</td><td>Standard</td><td>CHEN, Yue</td></tr></tbody>
+</table>
 
 #### As an emergency rescue team leader of a city, you are given a special map of your country. The map shows several scattered cities connected by some roads. Amount of rescue teams in each city and the length of each road between any pair of cities are marked on the map. When there is an emergency call to you from some other city, your job is to lead your men to the place as quickly as possible, and at the mean time, call up as many hands on the way as possible.
 
@@ -13,6 +18,10 @@
 
 #### For each test case, print in one line two numbers: the number of different shortest paths between C1 and C2, and the maximum amount of rescue teams you can possibly gather.All the numbers in a line must be separated by exactly one space, and there is no extra space allowed at the end of a line.
 
-Sample Input | Sample Output
-- | -
-5 6 0 2<br>1 2 1 5 3<br>0 1 1<br>0 2 2<br>0 3 1<br>1 2 1<br>2 4 1<br>3 4 1<br> | 2 4
+<table>
+<thead>
+<th>Sample Input</th><th>Sample Output</th>
+</thead>
+<tbody>
+<tr><td>5 6 0 2<br>1 2 1 5 3<br>0 1 1<br>0 2 2<br>0 3 1<br>1 2 1<br>2 4 1<br>3 4 1<br></td><td>2 4</td></tr></tbody>
+</table>
