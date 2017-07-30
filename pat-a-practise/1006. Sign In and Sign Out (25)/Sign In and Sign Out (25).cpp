@@ -11,8 +11,9 @@ struct person_time{
 	int sec;
 };
 
-person_time format(string in_time){
+person_time format(string in_time, string ID){
 	person_time in;
+	in.ID = ID;
 	int length = 0, start = 0, time[3] = {0}, v = 0;
 	for(int j = 0; j < in_time.length(); j++){
 		if(in_time[j] == ':'){
@@ -42,10 +43,8 @@ int main(int argc, char * argv[]){
 	for(int i = 0; i < num; i++){
 		cin >> id >> in_time >> left_time;
 		person_time in, left;
-		in = format(in_time);
-		in.ID = id;
-		left = format(left_time);
-		left.ID = id;
+		in = format(in_time, id);
+		left = format(left_time, id);
 		p.push_back(in);
 		p.push_back(left);
 	}
