@@ -1,65 +1,76 @@
 #include <iostream>
 #include <string>
 #include <math.h>
+#include <map>
+#include <algorithm>
 using namespace std;
 
 int main(int argc, char * argv[]){
-	string a = "", b = "", temp = "", res = "";
-	long long int tag = 0, radix = 0, result = 0, sum = 0;
-	cin >> a >> b;
-	cin >> tag >> radix;
-	if(tag == 1){
-		temp = a;
-		res = b;
+  map<char, int> ctoi;
+  for(char i = '0'; i <= '9'; i ++){
+    ctoi[i] = i - 48;
+  }
+  for(char i = 'a'; i <= 'z'; i++){
+    ctoi[i] = i - 87;
+  }
+  
+  string a = "", b = "", temp = "", res = "";
+  long long int tag = 0, radix = 0, sum = 0;
+  cin >> a >> b;
+  cin >> tag >> radix;
+  if(tag == 1){
+    temp = a;
+    res = b;
+  }
+  else if(tag == 2){
+    temp = b;
+    res = a;
+  }
+  int l = temp.length();
+  for(int i = 0; i < l; i++){
+    sum += ctoi[temp[i]] * pow(double(radix), double(l - i - 1));
+  }
+  int flag = 0;
+  int len = res.length();
+  long long i = 1 , pre = 0, max_dig = 0;
+  double t = 0;
+  for(int k = 0; k < len; k ++){
+    if(ctoi[res[k]] > max_dig){
+      max_dig = ctoi[res[k]];
+    }
+  }
+  i = max_dig + 1;
+  long long left = min(max_dig + 1, sum + 1), right = max(max_dig + 1, sum + 1), mid = 0;
+  mid = (left + right) / 2;
+  for(int i = mid; left <= right; i = (left + right) / 2){
+	t = 0;
+	//cout << "i:" << i << ";left:" << left << ";right:" << right;
+	for(int j = 0; j < len; j ++){
+	  t += ctoi[res[j]] * pow(double(i), double(len - j - 1));
 	}
-	else if(tag == 2){
-		temp = b;
-		res = a;
+	//cout << ";t:" << t << ";sum:" << sum << endl;
+	if(sum == t){
+		if(len == 1){
+			i = max_dig + 1;
+		}
+		cout << i;
+	    flag = 1;
+	    break;
 	}
-	int l = temp.length();
-	for(int i = 0; i < l; i++){
-		if(temp[i] >= 48 && temp[i] < 57){
-			sum += (temp[i] - 48) * pow(double(radix), double(l - i - 1));
-		}
-		else if(temp[i] >= 57){
-			sum += (temp[i] - 87) * pow(double(radix), double(l - i -  1));
-		}
+	else if(sum < t){
+		right = i - 1;
 	}
-	long long int bit = 0, flag = 0;
-	int len = res.length();
-	long long int i = 1 , t = 0;
-	do{
-		t = 0;
-		bit = 0;
-		if(len == 1 && res[0] == '0'){
-			if(sum == 0){
-				cout << 1;			
-			}
-			break;
-		}
-		for(int j = 0; j < len; j ++){
-			if(res[j] >= 48 && res[j] < 57){
-				bit = res[j] - 48;
-			}
-			else if(res[j] >= 57){
-				bit = res[j] - 87;
-			}
-			if(bit >= i){
-				break;
-			}
-			else{
-				t += bit * pow(double(i), double(len - j - 1));
-			}
-		}
-		if(sum == t){
-			cout << i;
-			flag = 1;
-			break;
-		}
-		i ++;
-	}while( sum >= t);
-	if(flag == 0){
-		cout << "Impossible";
+	else if(sum > t){
+		left = i + 1;
 	}
-	return 0;
+	if(t == pre){
+	  break;
+	}
+	pre = t;
+  }
+  
+  if(flag == 0){
+    cout << "Impossible";
+  }
+  return 0;
 }
