@@ -39,7 +39,7 @@ int main(int argc, char * argv[]){
       max_dig = ctoi[res[k]];
     }
   }
-  double i = max_dig + 1;
+  long long i = max_dig + 1;
   long long left = min(max_dig + 1, sum + 1), right = max(max_dig + 1, sum + 1);
   for(i = (left + right) / 2; left <= right; i = (left + right) / 2){
 	t = 0;
@@ -52,7 +52,7 @@ int main(int argc, char * argv[]){
 		if(len == 1){
 			i = max_dig + 1;
 		}
-		cout << (long long)i;
+		cout << i;
 	    flag = 1;
 	    break;
 	}
