@@ -32,17 +32,16 @@ int main(int argc, char * argv[]){
   }
   int flag = 0;
   int len = res.length();
-  long long i = 1 , pre = 0, max_dig = 0;
-  double t = 0;
+  long long int max_dig = 0;
+  double t = 0, pre = 0;
   for(int k = 0; k < len; k ++){
     if(ctoi[res[k]] > max_dig){
       max_dig = ctoi[res[k]];
     }
   }
-  i = max_dig + 1;
-  long long left = min(max_dig + 1, sum + 1), right = max(max_dig + 1, sum + 1), mid = 0;
-  mid = (left + right) / 2;
-  for(int i = mid; left <= right; i = (left + right) / 2){
+  double i = max_dig + 1;
+  long long left = min(max_dig + 1, sum + 1), right = max(max_dig + 1, sum + 1);
+  for(i = (left + right) / 2; left <= right; i = (left + right) / 2){
 	t = 0;
 	//cout << "i:" << i << ";left:" << left << ";right:" << right;
 	for(int j = 0; j < len; j ++){
@@ -53,7 +52,7 @@ int main(int argc, char * argv[]){
 		if(len == 1){
 			i = max_dig + 1;
 		}
-		cout << i;
+		cout << (long long)i;
 	    flag = 1;
 	    break;
 	}
