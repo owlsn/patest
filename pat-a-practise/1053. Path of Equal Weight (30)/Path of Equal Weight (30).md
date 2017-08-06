@@ -12,7 +12,7 @@
 
 #### Now given any weighted tree, you are supposed to find all the paths with their weights equal to a given number. For example, let's consider the tree showed in Figure 1: for each node, the upper number is the node ID which is a two-digit number, and the lower number is the weight of that node. Suppose that the given number is 24, then there exists 4 different paths which have the same given weight: {10 5 2 7}, {10 4 10}, {10 3 3 6 2} and {10 3 3 6 2}, which correspond to the red edges in Figure 1.
 
-<image src="https://raw.githubusercontent.com/owlsn/patest/master/pat-a-practise/1032.%20Sharing%20(25)/5b_mj58f84v11w"/>
+<image src="https://raw.githubusercontent.com/owlsn/patest/master/pat-a-practise/1053.%20Path%20of%20Equal%20Weight%20(30)/5b_mj58f84v11w.jpg"/>
 Figure 1
 ### Input Specification:
 
