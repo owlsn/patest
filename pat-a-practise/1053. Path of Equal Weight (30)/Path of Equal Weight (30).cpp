@@ -14,8 +14,8 @@ struct Node{
 void DFS(Node root[], int index, int num, int count, vector<int> seq){
 	seq.push_back(index);
 	count += root[index].weight;
-	if(root[index].children.size() == 0){
-		if(count == num){
+	if(count == num){
+		if(root[index].children.size() == 0){
 			for(int i = 0; i < seq.size(); i ++){
 				cout << root[seq[i]].weight;
 				if(i != seq.size() - 1){
@@ -27,7 +27,7 @@ void DFS(Node root[], int index, int num, int count, vector<int> seq){
 			}
 		}
 	}
-	else{
+	else if(count < num){
 		for(int i = 0; i < root[index].children.size(); i ++){
 			DFS(root, root[index].children[i], num, count, seq);
 		}
