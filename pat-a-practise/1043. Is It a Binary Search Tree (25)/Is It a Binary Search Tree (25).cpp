@@ -35,10 +35,10 @@ Node * insertImage(Node * &root, int data){
 		return root;
 	}
 	if(data >= root->data){
-		insert(root->left, data);
+		insertImage(root->left, data);
 	}
 	else{
-		insert(root->right, data);
+		insertImage(root->right, data);
 	}
 	return root;
 }
@@ -71,14 +71,7 @@ int main(int argc, char * argv[]){
 	}
 	pre(root, pre_seq);
 	pre(image_root, pre_image);
-	cout << image_root->right->right->data << endl;
 	bool flag = false;
-	for(int i = 0; i < num; i++){
-			cout << pre_image[i];
-			if(i != num - 1){
-				cout << " ";
-			}
-		}
 	if(seq == pre_seq){
 		flag = true;
 		post(root, post_seq);
