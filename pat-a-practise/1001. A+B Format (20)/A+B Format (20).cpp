@@ -12,8 +12,7 @@ int  main(int argc, char* argv[])
 	do{
 		str[i] = remain % 1000;
 		i++;
-	}
-	while(remain /= 1000);
+	} while (remain /= 1000);
 	for(printf("%d", str[--i]); i; --i){
 		printf(",%03d", str[i-1]);
 	}
