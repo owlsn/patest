@@ -34,7 +34,9 @@ int main()
         struct Paths *temp;
         struct PathsNode *n;
         temp = list->start;
-        while(temp !=NULL){
+        while (temp != NULL)
+        {
+            printf("共%d个节点:", temp->num);
             n = temp->head;
             while(n != NULL){
                 printf("%d", n->data);

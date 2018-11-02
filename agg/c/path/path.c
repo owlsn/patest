@@ -9,6 +9,7 @@ struct Pathslist *init_paths()
 struct Paths *cp_path(struct Stack *stack)
 {
     struct Paths *path = (struct Paths *)malloc(sizeof(struct Paths));
+    path->num = 0;
     int node;
     struct PathsNode *head = (struct PathsNode *)malloc(sizeof(struct PathsNode));
     node = pop(stack);
@@ -19,6 +20,7 @@ struct Paths *cp_path(struct Stack *stack)
     {
         struct PathsNode *new = (struct PathsNode *)malloc(sizeof(struct PathsNode));
         node = pop(stack);
+        path->num++;
         push(temp, node);
         new->data = node;
         new->next = head->next;
@@ -107,9 +109,4 @@ void DFS(int (*graph)[MAXNODE], int n, int start, int end, int *pathsNum, struct
         }
     }
     free(stack);
-}
-
-struct Paths *Djstra(int (*graph)[MAXNODE], int n, int start, int end){
-    struct Paths *path = (struct Paths *)malloc(sizeof(struct Paths));
-    return path;
 }
