@@ -1,1 +1,0 @@
-double pw(double base, int exponent);

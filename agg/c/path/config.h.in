@@ -1,6 +1,0 @@
-#cmakedefine USE_LIB
-#cmakedefine PATH_VERSION_MAJOR @PATH_VERSION_MAJOR@
-#cmakedefine PATH_VERSION_MINOR @PATH_VERSION_MINOR@
-#include "lib/check.h"
-#include "lib/path.h"
-#include "extra/math.h"
